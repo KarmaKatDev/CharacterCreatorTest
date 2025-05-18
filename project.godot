@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="CharacterCreatorExample"
+run/main_scene="uid://c1sgag2qr6ey6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/humanizer/plugin.cfg")
+enabled=PackedStringArray()
