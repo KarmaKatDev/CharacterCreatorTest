@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://5p1djg2vp8nm"]
+
+[ext_resource type="Texture2D" uid="uid://d2giytcked6wy" path="res://TestModel/TestModel__09.png" id="1_h7ho6"]
+
+[resource]
+resource_name = "Eyelashes"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_h7ho6")
+roughness = 0.5

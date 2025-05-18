@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1sgag2qr6ey6"]
+
+[ext_resource type="PackedScene" uid="uid://dd3rm0l1r31n3" path="res://TestModel/TestModel.glb" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://dqgbxjtkqyysg" path="res://main.gd" id="1_uu6xs"]
+[ext_resource type="Material" uid="uid://douf2t0fwi4i7" path="res://TestModel/Materials/Body.tres" id="2_cm0pq"]
+[ext_resource type="Material" uid="uid://bejoiso0noguh" path="res://TestModel/Materials/Face.tres" id="3_fos0i"]
+[ext_resource type="Material" uid="uid://bmkgu4kh8675d" path="res://TestModel/Materials/Iris.tres" id="4_03owx"]
+[ext_resource type="Material" uid="uid://xid8c0xq31mv" path="res://TestModel/Materials/EyeWhite.tres" id="5_wkp8b"]
+[ext_resource type="Material" uid="uid://5p1djg2vp8nm" path="res://TestModel/Materials/Eyelashes.tres" id="6_20pc6"]
+[ext_resource type="Material" uid="uid://h1cxsqn0qecy" path="res://TestModel/Materials/Eyebrows.tres" id="7_5vvyt"]
+[ext_resource type="Material" uid="uid://dkpe4hpooqp8o" path="res://TestModel/Materials/Hair.tres" id="8_c6i3y"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_uu6xs")
+SkinMaterials = Array[Material]([ExtResource("2_cm0pq"), ExtResource("3_fos0i")])
+IrisMaterial = ExtResource("4_03owx")
+ScleraMaterial = ExtResource("5_wkp8b")
+HairMaterial = Array[Material]([ExtResource("6_20pc6"), ExtResource("7_5vvyt"), ExtResource("8_c6i3y")])
+
+[node name="TestModel" parent="." instance=ExtResource("1_glv2v")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115, 1.465, 5)
+projection = 1
+size = 0.3
+near = 0.001
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.82762, 0.283845, -0.484229, 0, 0.862708, 0.505703, 0.561289, -0.418529, 0.713994, -6.30834, 1.47369, 0.902618)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 875.0
+offset_top = 116.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Skin" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Skin:"
+
+[node name="SkinButton" type="ColorPickerButton" parent="UI/VBoxContainer/Skin"]
+layout_mode = 0
+offset_left = 139.0
+offset_right = 183.0
+offset_bottom = 43.0
+
+[node name="Iris" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Iris:"
+
+[node name="IrisButton" type="ColorPickerButton" parent="UI/VBoxContainer/Iris"]
+layout_mode = 0
+offset_left = 139.0
+offset_right = 183.0
+offset_bottom = 43.0
+
+[node name="Sclera" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Sclera:"
+
+[node name="ScleraButton" type="ColorPickerButton" parent="UI/VBoxContainer/Sclera"]
+layout_mode = 0
+offset_left = 139.0
+offset_right = 183.0
+offset_bottom = 43.0
+
+[node name="Hair" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Hair:"
+
+[node name="HairButton" type="ColorPickerButton" parent="UI/VBoxContainer/Hair"]
+layout_mode = 0
+offset_left = 139.0
+offset_right = 183.0
+offset_bottom = 43.0
+
+[connection signal="color_changed" from="UI/VBoxContainer/Skin/SkinButton" to="." method="_on_skin_button_color_changed"]
+[connection signal="color_changed" from="UI/VBoxContainer/Iris/IrisButton" to="." method="_on_iris_button_color_changed"]
+[connection signal="color_changed" from="UI/VBoxContainer/Sclera/ScleraButton" to="." method="_on_sclera_button_color_changed"]
+[connection signal="color_changed" from="UI/VBoxContainer/Hair/HairButton" to="." method="_on_hair_button_color_changed"]

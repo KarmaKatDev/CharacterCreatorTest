@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bmkgu4kh8675d"]
+
+[ext_resource type="Texture2D" uid="uid://cjt0it1e1a67j" path="res://TestModel/TestModel__02.png" id="1_qinir"]
+
+[resource]
+resource_name = "Iris"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_qinir")
+roughness = 0.5
